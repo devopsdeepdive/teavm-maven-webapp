@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+  label {
+    label 'jenkins_agent'
+    retries 0
+  }
+}
 
     stages {
         stage('Checkout') {
