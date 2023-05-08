@@ -23,11 +23,11 @@ pipeline {
             steps {
 				sh 'mvn package'            }
         }
-	     stage('Deploy') {
-            steps {
-				echo 'deployed successfully'            
-	    }
-        }
+	     //stage('Deploy') {
+            //steps {
+				//echo 'deployed successfully'            
+	    //}
+        //}
 	     stage('Notify') {
             steps {
 		slackSend channel: '#devopsdeepdive_batch15', message: 'Build successful'	    }
