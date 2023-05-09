@@ -23,11 +23,13 @@ pipeline {
             steps {
 				sh 'mvn package'            }
         }
-	     //stage('Deploy') {
-            //steps {
-				//echo 'deployed successfully'            
-	    //}
-        //}
+	     stage('Deploy') {
+            steps {
+		sshagent(['slave']) {
+			scp -o StrictHostKeyChecking=no  /var/lib/jenkins/workspace/teavm-maven-webapp-pipeline/target/teavm-maven-webapp-1.1-SNAPSHOT.war ubuntu@172.31.21.31/opt/tomcat/apache-tomcat-9.0.74/webapps
+		}
+	    }
+        }
 	     stage('Notify') {
             steps {
 		slackSend channel: '#devopsdeepdive_batch15', message: 'Build successful'	    }
