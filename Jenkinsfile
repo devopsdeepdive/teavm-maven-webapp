@@ -21,7 +21,7 @@ pipeline {
 	     stage('Deploy') {
             steps {
 		    sshagent(['tomcat_server']) {
-			 sh 'scp -o StrictHostKeyChecking=no  /var/lib/jenkins/workspace/teavm-maven-webapp-pipeline/target/teavm-maven-webapp-1.1-SNAPSHOT.war ubuntu@172.31.21.31:/opt/tomcat/apache-tomcat-9.0.74/webapps'
+			 sh 'scp -o StrictHostKeyChecking=no  /var/lib/jenkins/workspace/teavm-maven-webapp-pipeline/target/teavm-maven-webapp-1.1-SNAPSHOT.war ubuntu@54.242.225.19:/opt/tomcat/apache-tomcat-9.0.74/webapps'
 		    }
 		
 	    }
