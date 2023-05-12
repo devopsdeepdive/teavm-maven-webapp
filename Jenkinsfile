@@ -21,6 +21,11 @@ agent any
       sh 'mvn test'
     }
   }
+     stage('Hello') {
+    steps {
+      sh 'echo "hello world"'
+    }
+  }
    /*   stage('Deploy') {
     steps {
       sshagent(['tomcat_deploy']) {
