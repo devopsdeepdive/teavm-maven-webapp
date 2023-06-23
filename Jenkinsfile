@@ -1,14 +1,9 @@
 pipeline {
 agent any
-  //agent {
-  //label 'jenkins_slave'
-//}
   stages {
   stage('Checkout') {
     steps {
       checkout scmGit(branches: [[name: '*/bacth16']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_passwd', url: 'https://github.com/devopsdeepdive/teavm-maven-webapp.git']])
-          sleep time: 1, unit: 'MINUTES'
-
     }
   }
      stage('Build') {
@@ -34,12 +29,6 @@ agent any
     }
   } */
        
-   /*  stage('Notify') {
-      steps {
-slackSend channel: '#devopsdeepdive_batch14', color: '#439FE0', message: 'message: "Build Started'    
-      } */
   }
-
-}
 
 }
