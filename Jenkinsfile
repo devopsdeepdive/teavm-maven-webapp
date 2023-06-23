@@ -6,7 +6,7 @@ agent any
   stages {
   stage('Checkout') {
     steps {
-      checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_cred', url: 'https://github.com/devopsdeepdive/teavm-maven-webapp.git']])
+      checkout scmGit(branches: [[name: '*/bacth16']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_passwd', url: 'https://github.com/devopsdeepdive/teavm-maven-webapp.git']])
           sleep time: 1, unit: 'MINUTES'
 
     }
@@ -21,6 +21,11 @@ agent any
       sh 'mvn test'
     }
   }
+     stage('Package') {
+    steps {
+      sh 'mvn package'
+    }
+  }
    /*   stage('Deploy') {
     steps {
       sshagent(['tomcat_deploy']) {
@@ -28,9 +33,11 @@ agent any
 }
     }
   } */
+      /* 
      stage('Notify') {
       steps {
-slackSend channel: '#devopsdeepdive_batch14', color: '#439FE0', message: 'message: "Build Started'      }
+slackSend channel: '#devopsdeepdive_batch14', color: '#439FE0', message: 'message: "Build Started'    
+      } */
   }
 
 }
