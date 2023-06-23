@@ -3,7 +3,7 @@ agent any
   stages {
   stage('Checkout') {
     steps {
-      checkout scmGit(branches: [[name: '*/bacth16']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_passwd', url: 'https://github.com/devopsdeepdive/teavm-maven-webapp.git']])
+      checkout scmGit(branches: [[name: '*/batch16']], extensions: [], userRemoteConfigs: [[credentialsId: 'github_passwd', url: 'https://github.com/devopsdeepdive/teavm-maven-webapp.git']])
     }
   }
      stage('Build') {
