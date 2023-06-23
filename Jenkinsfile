@@ -21,13 +21,14 @@ agent any
       sh 'mvn package'
     }
   }
-   /*   stage('Deploy') {
+      stage('Deploy') {
     steps {
-      sshagent(['tomcat_deploy']) {
-    sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/teavm-maven-webapp-pipeline/target/teavm-maven-webapp-1.0-SNAPSHOT.war ubuntu@172.31.9.172:/opt/tomcat/webapps'
+     sshagent(['jenkins_agent']) {
+   sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/teavm-maven-webapp-pipeline/target/teavm-maven-webapp-1.1-SNAPSHOT.war ubuntu@172.31.23.42:/opt/tomcat/webapps'
+}
 }
     }
-  } */
+  } 
        
   }
 
