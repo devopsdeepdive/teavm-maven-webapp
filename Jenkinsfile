@@ -17,6 +17,9 @@ agent any
     }
   }
      stage('Package') {
+        when {
+                branch 'production'
+            }
     steps {
       sh 'mvn package'
     }
