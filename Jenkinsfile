@@ -28,6 +28,11 @@ agent any
 }
 }
     }
+      stage('Notify') {
+    steps {
+      slackSend channel: '#devopsdeepdive_batch16', message: 'Build is successful'
+    }
+  }
   } 
        
   }
